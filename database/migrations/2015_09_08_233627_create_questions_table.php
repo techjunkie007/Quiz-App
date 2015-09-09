@@ -12,8 +12,11 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->increments('question_id');
+        //Create Questions Table
+        Schema::create('questions', function (Blueprint $table)
+        {
+            //Questions Table Entities
+            $table->increments('id');
             $table->char('question_type', 10);
             $table->text('question_data');
             $table->date('created_at');
@@ -28,6 +31,7 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
+        //Drop Questions Table
         Schema::drop('questions');
     }
 }

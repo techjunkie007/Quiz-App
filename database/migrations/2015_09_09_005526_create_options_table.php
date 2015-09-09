@@ -12,8 +12,11 @@ class CreateOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('options', function (Blueprint $table) {
-            $table->increments('option_id');
+        //Create Options Table
+        Schema::create('options', function (Blueprint $table) 
+        {
+            //All Table Entities
+            $table->increments('id');
             $table->integer('question_id');
             $table->text('option_data');
             $table->integer('correct_flag');
@@ -27,6 +30,7 @@ class CreateOptionsTable extends Migration
      */
     public function down()
     {
+        //Drop Options Table
         Schema::drop('options');
     }
 }

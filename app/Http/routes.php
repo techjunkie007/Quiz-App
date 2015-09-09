@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Login Get Route
+Route::get('login', function () {
+    return view('login.login');
+});
+
+//Dashboard Post Route
+Route::post('dashboard', ['uses'=>'LoginController@login']);
+
+//Dashboard Get Route
+Route::get('dashboard', function()
+{
+	//Authentication Check
+	if (\Auth::check()) 
+	{
+		//Dashboard
+		return view('dashboard.dashboard_home');
+	}
 });
