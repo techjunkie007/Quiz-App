@@ -29,3 +29,6 @@ Route::get('dashboard', function()
 		return view('dashboard.dashboard_home');
 	}
 });
+
+//Generate Quiz Route
+Route::get('quiz', ['uses'=>'QuizController@generateQuiz']);
