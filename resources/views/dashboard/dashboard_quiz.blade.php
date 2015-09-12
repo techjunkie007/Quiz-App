@@ -9,7 +9,7 @@
   		<center><h1>Play Quiz</h1></center>
 	</div>
 	
-	{!! Form::open(array('url' => 'results', 'method' => 'post')) !!}
+	{!! Form::open(array('url' => 'result', 'method' => 'post')) !!}
 		@foreach($quiz as $question)
 			<div class="container">
 				<div id="question">
@@ -17,7 +17,9 @@
 				</div>
 				<div id="options">
 					@foreach($question['options'] as $option)
-						OPTION {{ $option['option_no'] }} : {!! Form::checkbox( $option['option_id'], $option['option_id']); !!}
+						OPTION {{ $option['option_no'] }} : 
+						{!! Form::hidden( $question['question_id']."+".$option['option_id'], 'unchecked') !!}
+						{!! Form::checkbox( $question['question_id']."+".$option['option_id'], 'checked'); !!}
 					{{ $option['option_data'] }}
 					<br>
 					@endforeach
@@ -25,7 +27,7 @@
 				</div>
 			</div>
 		@endforeach
-		<div class="container" >
+		<div class="container">
 			{!! Form::submit('Submit Quiz!'); !!}
 		</div>
 	{!! Form::close() !!}

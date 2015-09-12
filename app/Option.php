@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
+	//Accessor for getting Option ID
+	public function getMyIdAttribute()
+	{
+		//Return Option ID
+		return $this->id;
+	}
     //Accessor for getting Option Data
 	public function getDataAttribute()
 	{

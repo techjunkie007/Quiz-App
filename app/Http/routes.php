@@ -32,3 +32,6 @@ Route::get('dashboard', function()
 
 //Generate Quiz Route
 Route::get('quiz', ['uses'=>'QuizController@generateQuiz']);
+
+//Result of Quiz Route
+Route::post('result', ['uses'=>'QuizController@generateQuizResult']);
